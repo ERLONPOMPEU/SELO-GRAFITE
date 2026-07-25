@@ -689,19 +689,24 @@
 
     <div class="gallery-grid" id="galleryGrid">
 
-      <!-- FOTO 1: Catrina -->
-      <div class="gallery-item" data-category="realismo" onclick="openLightbox(0)">
-        <img class="gallery-img" src="https://github.com/user-attachments/assets/97db9b74-05f2-4c47-a289-ec74d072b21b" alt="Tatuagem Catrina Realismo" loading="lazy" />
+      <div class="gallery-item" data-category="blackwork" onclick="openLightbox(0)">
+        <img class="gallery-img"
+          src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=900&q=85&auto=format&fit=crop"
+          alt="Tatuagem Mandala Geométrica Blackwork"
+          loading="lazy" />
         <div class="gallery-overlay">
-          <span>Realismo</span>
-          <h4>Catrina</h4>
+          <span>Blackwork</span>
+          <h4>Mandala Geométrica</h4>
         </div>
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- FOTO 2: Gueixa -->
+      <!-- FOTO 2: A SUA FOTO DA GUEIXA ESTÁ AQUI -->
       <div class="gallery-item" data-category="oriental" onclick="openLightbox(1)">
-        <img class="gallery-img" src="https://github.com/user-attachments/assets/285ad3ba-6d15-408b-9ac7-2ea4cf7f7548" alt="Tatuagem Gueixa Oriental" loading="lazy" />
+        <img class="gallery-img"
+          src="https://github.com/user-attachments/assets/285ad3ba-6d15-408b-9ac7-2ea4cf7f7548"
+          alt="Tatuagem Gueixa Oriental"
+          loading="lazy" />
         <div class="gallery-overlay">
           <span>Oriental</span>
           <h4>Gueixa Tradicional</h4>
@@ -709,27 +714,30 @@
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- FOTO 3: Menino Favela -->
-      <div class="gallery-item" data-category="blackwork" onclick="openLightbox(2)">
-        <img class="gallery-img" src="https://github.com/user-attachments/assets/20541b78-9a35-475b-b70f-0f13112ef9d2" alt="Tatuagem Menino Favela" loading="lazy" />
+      <div class="gallery-item" data-category="oriental" onclick="openLightbox(2)">
+        <img class="gallery-img"
+          src="https://images.unsplash.com/photo-1562962230-16220abb7df3?w=700&q=85&auto=format&fit=crop"
+          alt="Tatuagem Estilo Oriental no Ombro"
+          loading="lazy" />
         <div class="gallery-overlay">
-          <span>Blackwork</span>
-          <h4>Brasilidade</h4>
+          <span>Oriental</span>
+          <h4>Dragão no Ombro</h4>
         </div>
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- FOTO 4: Rosa Azul Cobertura -->
-      <div class="gallery-item" data-category="realismo" onclick="openLightbox(3)">
-        <img class="gallery-img" src="https://github.com/user-attachments/assets/4d876230-6f7c-4026-be39-fa4b3c499103" alt="Tatuagem Rosa Azul Cobertura" loading="lazy" />
+      <div class="gallery-item" data-category="fineline" onclick="openLightbox(3)">
+        <img class="gallery-img"
+          src="https://images.unsplash.com/photo-1567359781514-81212b4d2f5d?w=700&q=85&auto=format&fit=crop"
+          alt="Tatuagem Fine Line no Braço"
+          loading="lazy" />
         <div class="gallery-overlay">
-          <span>Realismo</span>
-          <h4>Rosa Azul (Cover-up)</h4>
+          <span>Fine Line</span>
+          <h4>Rosa Fine Line</h4>
         </div>
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- FOTOS 5 e 6: Exemplos para não quebrar a grade -->
       <div class="gallery-item" data-category="blackwork" onclick="openLightbox(4)">
         <img class="gallery-img"
           src="https://images.unsplash.com/photo-1590246814883-57764c5f6ccc?w=1100&q=85&auto=format&fit=crop"
@@ -772,7 +780,7 @@
   </div>
 </div>
 
-<!-- ===== DEPOIMENTOS FIXOS ===== -->
+<!-- ===== DEPOIMENTOS ===== -->
 <section id="depoimentos">
   <div class="container">
     <div class="testimonials-header fade-up">
@@ -1003,10 +1011,10 @@
   // ===== DADOS DA GALERIA (para o Lightbox) =====
   const galleryData = [
     {
-      title: 'Catrina',
-      style: 'Realismo',
-      src: 'https://github.com/user-attachments/assets/97db9b74-05f2-4c47-a289-ec74d072b21b',
-      alt: 'Tatuagem Catrina Realismo'
+      title: 'Mandala Geométrica',
+      style: 'Blackwork',
+      src: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=1200&q=90&auto=format&fit=crop',
+      alt: 'Tatuagem Mandala Geométrica Blackwork'
     },
     {
       title: 'Gueixa Tradicional',
@@ -1015,16 +1023,16 @@
       alt: 'Tatuagem Gueixa Oriental'
     },
     {
-      title: 'Brasilidade',
-      style: 'Blackwork',
-      src: 'https://github.com/user-attachments/assets/20541b78-9a35-475b-b70f-0f13112ef9d2',
-      alt: 'Tatuagem Menino Favela'
+      title: 'Dragão no Ombro',
+      style: 'Oriental',
+      src: 'https://images.unsplash.com/photo-1562962230-16220abb7df3?w=1200&q=90&auto=format&fit=crop',
+      alt: 'Tatuagem Estilo Oriental no Ombro'
     },
     {
-      title: 'Rosa Azul (Cover-up)',
-      style: 'Realismo',
-      src: 'https://github.com/user-attachments/assets/4d876230-6f7c-4026-be39-fa4b3c499103',
-      alt: 'Tatuagem Rosa Azul Cobertura'
+      title: 'Rosa Fine Line',
+      style: 'Fine Line',
+      src: 'https://images.unsplash.com/photo-1567359781514-81212b4d2f5d?w=1200&q=90&auto=format&fit=crop',
+      alt: 'Tatuagem Fine Line no Braço'
     },
     {
       title: 'Full Back Blackwork',
