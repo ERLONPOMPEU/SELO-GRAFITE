@@ -319,7 +319,7 @@
     .lb-prev { left: -60px; }
     .lb-next { right: -60px; }
 
-    /* ===== TESTIMONIALS ===== */
+    /* ===== TESTIMONIALS (CORRIGIDO PARA GRADE) ===== */
     #depoimentos { padding: 120px 0; background: var(--bg-800); position: relative; overflow: hidden; }
     #depoimentos::before {
       content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%);
@@ -327,12 +327,16 @@
       background:radial-gradient(circle, rgba(200,169,110,.05) 0%, transparent 70%); pointer-events:none;
     }
     .testimonials-header { text-align: center; margin-bottom: 64px; }
-    .carousel-wrap { position: relative; overflow: hidden; }
-    .carousel-track { display: flex; gap: 24px; transition: transform .6s cubic-bezier(.4,0,.2,1); }
+    
+    .testimonials-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 24px; 
+    }
+    
     .testimonial-card {
-      min-width: calc(33.333% - 16px);
       background: var(--bg-700); border: 1px solid var(--border);
-      border-radius: 16px; padding: 36px; position: relative; flex-shrink: 0;
+      border-radius: 16px; padding: 36px; position: relative;
     }
     .testimonial-card::before {
       content: '"'; position: absolute; top: 20px; right: 28px;
@@ -355,19 +359,6 @@
       font-size: .7rem; color: var(--gold); letter-spacing: .08em;
       background: rgba(200,169,110,.08); padding: 3px 10px; border-radius: 50px; border: 1px solid var(--border);
     }
-    .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 48px; }
-    .carousel-btn {
-      width: 44px; height: 44px; border-radius: 50%;
-      border: 1.5px solid var(--border); background: transparent; color: var(--white);
-      font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition);
-    }
-    .carousel-btn:hover { background: var(--gold); color: var(--bg-900); border-color: var(--gold); }
-    .carousel-dots { display: flex; gap: 8px; }
-    .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--bg-600); border: 1px solid var(--border); cursor: pointer; transition: var(--transition);
-    }
-    .dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.3); }
 
     /* ===== CTA ===== */
     #agende { padding: 120px 0; position: relative; overflow: hidden; }
@@ -459,7 +450,7 @@
       .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
       .gallery-item:nth-child(5) { grid-column: span 1; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .testimonial-card { min-width: calc(50% - 12px); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     }
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
@@ -469,7 +460,7 @@
       .gallery-item:nth-child(1), .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
       .cta-box { padding: 48px 28px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .testimonial-card { min-width: calc(100%); }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 24px; }
       .lb-prev { left: -14px; }
       .lb-next { right: -14px; }
       .about-badge-float { right: 0; bottom: -16px; }
@@ -573,7 +564,6 @@
     <div class="about-grid">
       <div class="about-image-wrap fade-up">
         <div class="about-img-main">
-          <!-- Foto real: tatuador trabalhando -->
           <img
             src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=800&q=85&auto=format&fit=crop"
             alt="Artista do Selo Grafite Brasil trabalhando em uma tatuagem"
@@ -699,7 +689,6 @@
 
     <div class="gallery-grid" id="galleryGrid">
 
-      <!-- Item 1 — Grande / Blackwork Mandala -->
       <div class="gallery-item" data-category="blackwork" onclick="openLightbox(0)">
         <img class="gallery-img"
           src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=900&q=85&auto=format&fit=crop"
@@ -712,7 +701,6 @@
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- Item 2 — Realismo -->
       <div class="gallery-item" data-category="realismo" onclick="openLightbox(1)">
         <img class="gallery-img"
           src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=700&q=85&auto=format&fit=crop"
@@ -725,7 +713,6 @@
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- Item 3 — Oriental -->
       <div class="gallery-item" data-category="oriental" onclick="openLightbox(2)">
         <img class="gallery-img"
           src="https://images.unsplash.com/photo-1562962230-16220abb7df3?w=700&q=85&auto=format&fit=crop"
@@ -738,7 +725,6 @@
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- Item 4 — Fine Line -->
       <div class="gallery-item" data-category="fineline" onclick="openLightbox(3)">
         <img class="gallery-img"
           src="https://images.unsplash.com/photo-1567359781514-81212b4d2f5d?w=700&q=85&auto=format&fit=crop"
@@ -751,7 +737,6 @@
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- Item 5 — Larga / Blackwork -->
       <div class="gallery-item" data-category="blackwork" onclick="openLightbox(4)">
         <img class="gallery-img"
           src="https://images.unsplash.com/photo-1590246814883-57764c5f6ccc?w=1100&q=85&auto=format&fit=crop"
@@ -764,7 +749,6 @@
         <div class="gallery-zoom">⊕</div>
       </div>
 
-      <!-- Item 6 — Realismo -->
       <div class="gallery-item" data-category="realismo" onclick="openLightbox(5)">
         <img class="gallery-img"
           src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=700&q=85&auto=format&fit=crop"
@@ -804,145 +788,135 @@
       <div class="gold-divider center"></div>
       <p style="color:var(--grey);max-width:500px;margin:0 auto;font-size:.92rem">Mais de 3.000 pessoas já confiaram sua pele ao Selo Grafite Brasil. Veja o que elas têm a dizer.</p>
     </div>
-    <div class="carousel-wrap fade-up fade-up-delay-2">
-      <div class="carousel-track" id="carouselTrack">
+    
+    <div class="testimonials-grid fade-up fade-up-delay-2">
 
-        <!-- Depoimento 1 — Braço -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Fiz minha primeira tatuagem no Selo Grafite e saí com lágrimas nos olhos — de emoção! O artista captou exatamente o que eu queria, uma manga no braço com elementos da minha família. O resultado superou tudo que eu imaginei. Ambiente limpo, profissional e acolhedor. Já indiquei para mais de 15 pessoas!"
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <!-- Foto: tatuagem no braço -->
-              <img
-                src="https://images.unsplash.com/photo-1504703395950-b89145a5425b?w=120&q=80&auto=format&fit=crop&crop=face"
-                alt="Lucas Mendonça mostrando tatuagem no braço"
-                loading="lazy" />
-            </div>
-            <div class="author-info">
-              <strong>Lucas Mendonça</strong>
-              <span>Designer Gráfico, 29 anos</span>
-              <div class="tattoo-location">🖼️ Tatuagem no Braço (Manga)</div>
-            </div>
+      <!-- Depoimento 1 — Braço -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Fiz minha primeira tatuagem no Selo Grafite e saí com lágrimas nos olhos — de emoção! O artista captou exatamente o que eu queria, uma manga no braço com elementos da minha família. O resultado superou tudo que eu imaginei. Ambiente limpo, profissional e acolhedor. Já indiquei para mais de 15 pessoas!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1504703395950-b89145a5425b?w=120&q=80&auto=format&fit=crop&crop=face"
+              alt="Lucas Mendonça mostrando tatuagem no braço"
+              loading="lazy" />
+          </div>
+          <div class="author-info">
+            <strong>Lucas Mendonça</strong>
+            <span>Designer Gráfico, 29 anos</span>
+            <div class="tattoo-location">🖼️ Tatuagem no Braço (Manga)</div>
           </div>
         </div>
-
-        <!-- Depoimento 2 — Perna -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Pesquisei muito antes de escolher um estúdio para fazer uma peça grande na perna. Desde a primeira conversa com a equipe do Selo Grafite, soube que era o lugar certo. O traço é simplesmente perfeito — um dragão japonês que tomou toda a batata da perna. Três meses depois e as pessoas na praia ainda perguntam quem fez!"
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <!-- Foto: tatuagem na perna -->
-              <img
-                src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=120&q=80&auto=format&fit=crop&crop=face"
-                alt="Fernanda Araújo mostrando tatuagem na perna"
-                loading="lazy" />
-            </div>
-            <div class="author-info">
-              <strong>Fernanda Araújo</strong>
-              <span>Professora, 34 anos</span>
-              <div class="tattoo-location">🖼️ Tatuagem na Perna (Batata)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Depoimento 3 — Costela -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Tatuagem na costela todo mundo sabe que dói, mas o profissionalismo do Rafael me deixou tão à vontade que o processo foi muito mais tranquilo do que eu esperava. Fiz uma citação em lettering cursivo e ficou de tirar o fôlego. Perfeito até o menor detalhe. O Selo Grafite é, sem dúvida, o melhor estúdio de Fortaleza."
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <!-- Foto: tatuagem na costela -->
-              <img
-                src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&q=80&auto=format&fit=crop&crop=face"
-                alt="Isabela Rodrigues mostrando tatuagem na costela"
-                loading="lazy" />
-            </div>
-            <div class="author-info">
-              <strong>Isabela Rodrigues</strong>
-              <span>Nutricionista, 27 anos</span>
-              <div class="tattoo-location">🖼️ Tatuagem na Costela (Lettering)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Depoimento 4 — Costas -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Já tenho 8 tatuagens de estúdios diferentes, mas o trabalho do Selo Grafite é outro nível. Fiz uma mandala nas costas que virou peça de arte. A atenção ao cliente, a higiene do ambiente e a qualidade técnica são incomparáveis. Além de tudo, o preço é justo para a qualidade entregue. Meu estúdio de referência em Fortaleza!"
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&auto=format&fit=crop&crop=face"
-                alt="Thiago Cavalcante"
-                loading="lazy" />
-            </div>
-            <div class="author-info">
-              <strong>Thiago Cavalcante</strong>
-              <span>Engenheiro Civil, 31 anos</span>
-              <div class="tattoo-location">🖼️ Tatuagem nas Costas (Mandala)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Depoimento 5 — Antebraço -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Fiz um retrato do meu cachorro no antebraço e os detalhes são tão realistas que parece uma foto! A equipe do Selo Grafite tem paciência pra conversar, ajustar o design e garantir que tudo vai ficar exatamente como você quer. Nunca me arrependi tanto de não ter ido antes. Já estou planejando a próxima!"
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <img
-                src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=120&q=80&auto=format&fit=crop&crop=face"
-                alt="Camila Sousa"
-                loading="lazy" />
-            </div>
-            <div class="author-info">
-              <strong>Camila Sousa</strong>
-              <span>Veterinária, 25 anos</span>
-              <div class="tattoo-location">🖼️ Tatuagem no Antebraço (Retrato)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Depoimento 6 — Nuca -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Minha tattoo na nuca é algo delicado, fino e perfeito. O artista do Selo Grafite tem um controle de máquina impressionante. Fine line no pescoço é coisa de artista de verdade. Já recebi inúmeros elogios! O atendimento desde a marcação até o pós-tattoo é cinco estrelas. Recomendo de olhos fechados!"
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=80&auto=format&fit=crop&crop=face"
-                alt="Mariana Lima"
-                loading="lazy" />
-            </div>
-            <div class="author-info">
-              <strong>Mariana Lima</strong>
-              <span>Advogada, 30 anos</span>
-              <div class="tattoo-location">🖼️ Tatuagem na Nuca (Fine Line)</div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
 
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="carPrev" aria-label="Anterior">‹</button>
-      <div class="carousel-dots" id="carDots"></div>
-      <button class="carousel-btn" id="carNext" aria-label="Próximo">›</button>
+      <!-- Depoimento 2 — Perna -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Pesquisei muito antes de escolher um estúdio para fazer uma peça grande na perna. Desde a primeira conversa com a equipe do Selo Grafite, soube que era o lugar certo. O traço é simplesmente perfeito — um dragão japonês que tomou toda a batata da perna. Três meses depois e as pessoas na praia ainda perguntam quem fez!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=120&q=80&auto=format&fit=crop&crop=face"
+              alt="Fernanda Araújo mostrando tatuagem na perna"
+              loading="lazy" />
+          </div>
+          <div class="author-info">
+            <strong>Fernanda Araújo</strong>
+            <span>Professora, 34 anos</span>
+            <div class="tattoo-location">🖼️ Tatuagem na Perna (Batata)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 3 — Costela -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Tatuagem na costela todo mundo sabe que dói, mas o profissionalismo do Rafael me deixou tão à vontade que o processo foi muito mais tranquilo do que eu esperava. Fiz uma citação em lettering cursivo e ficou de tirar o fôlego. Perfeito até o menor detalhe. O Selo Grafite é, sem dúvida, o melhor estúdio de Fortaleza."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&q=80&auto=format&fit=crop&crop=face"
+              alt="Isabela Rodrigues mostrando tatuagem na costela"
+              loading="lazy" />
+          </div>
+          <div class="author-info">
+            <strong>Isabela Rodrigues</strong>
+            <span>Nutricionista, 27 anos</span>
+            <div class="tattoo-location">🖼️ Tatuagem na Costela (Lettering)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 4 — Costas -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Já tenho 8 tatuagens de estúdios diferentes, mas o trabalho do Selo Grafite é outro nível. Fiz uma mandala nas costas que virou peça de arte. A atenção ao cliente, a higiene do ambiente e a qualidade técnica são incomparáveis. Além de tudo, o preço é justo para a qualidade entregue. Meu estúdio de referência em Fortaleza!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&auto=format&fit=crop&crop=face"
+              alt="Thiago Cavalcante"
+              loading="lazy" />
+          </div>
+          <div class="author-info">
+            <strong>Thiago Cavalcante</strong>
+            <span>Engenheiro Civil, 31 anos</span>
+            <div class="tattoo-location">🖼️ Tatuagem nas Costas (Mandala)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 5 — Antebraço -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Fiz um retrato do meu cachorro no antebraço e os detalhes são tão realistas que parece uma foto! A equipe do Selo Grafite tem paciência pra conversar, ajustar o design e garantir que tudo vai ficar exatamente como você quer. Nunca me arrependi tanto de não ter ido antes. Já estou planejando a próxima!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=120&q=80&auto=format&fit=crop&crop=face"
+              alt="Camila Sousa"
+              loading="lazy" />
+          </div>
+          <div class="author-info">
+            <strong>Camila Sousa</strong>
+            <span>Veterinária, 25 anos</span>
+            <div class="tattoo-location">🖼️ Tatuagem no Antebraço (Retrato)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 6 — Nuca -->
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Minha tattoo na nuca é algo delicado, fino e perfeito. O artista do Selo Grafite tem um controle de máquina impressionante. Fine line no pescoço é coisa de artista de verdade. Já recebi inúmeros elogios! O atendimento desde a marcação até o pós-tattoo é cinco estrelas. Recomendo de olhos fechados!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=80&auto=format&fit=crop&crop=face"
+              alt="Mariana Lima"
+              loading="lazy" />
+          </div>
+          <div class="author-info">
+            <strong>Mariana Lima</strong>
+            <span>Advogada, 30 anos</span>
+            <div class="tattoo-location">🖼️ Tatuagem na Nuca (Fine Line)</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1150,66 +1124,6 @@
       });
     });
   });
-
-  // ===== CAROUSEL =====
-  const track = document.getElementById('carouselTrack');
-  const cards  = track.querySelectorAll('.testimonial-card');
-  const total  = cards.length;
-  let carIdx   = 0;
-  let autoTimer;
-
-  function getVisible() {
-    if (window.innerWidth <= 768)  return 1;
-    if (window.innerWidth <= 1024) return 2;
-    return 3;
-  }
-
-  function buildDots() {
-    const dotsEl = document.getElementById('carDots');
-    dotsEl.innerHTML = '';
-    const count = total - getVisible() + 1;
-    for (let i = 0; i < count; i++) {
-      const d = document.createElement('button');
-      d.className = 'dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('aria-label', `Depoimento ${i + 1}`);
-      d.addEventListener('click', () => { goTo(i); startAuto(); });
-      dotsEl.appendChild(d);
-    }
-  }
-
-  function getCardW() {
-    const gap = 24;
-    const vis  = getVisible();
-    return (track.parentElement.offsetWidth - gap * (vis - 1)) / vis + gap;
-  }
-
-  function goTo(idx) {
-    const max = total - getVisible();
-    carIdx = Math.max(0, Math.min(idx, max));
-    track.style.transform = `translateX(${-carIdx * getCardW()}px)`;
-    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === carIdx));
-  }
-
-  function next() { goTo(carIdx + 1 > total - getVisible() ? 0 : carIdx + 1); }
-  function prev() { goTo(carIdx === 0 ? total - getVisible() : carIdx - 1); }
-
-  function startAuto() { clearInterval(autoTimer); autoTimer = setInterval(next, 4500); }
-
-  document.getElementById('carNext').addEventListener('click', () => { next(); startAuto(); });
-  document.getElementById('carPrev').addEventListener('click', () => { prev(); startAuto(); });
-
-  window.addEventListener('resize', () => { buildDots(); goTo(0); }, { passive: true });
-
-  // Touch swipe
-  let tX = 0;
-  track.addEventListener('touchstart', e => { tX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
-    const diff = tX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); startAuto(); }
-  });
-
-  buildDots();
-  startAuto();
 </script>
 
 </body>
